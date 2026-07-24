@@ -92,7 +92,7 @@ Every subcommand also accepts `--help`, e.g. `python3 main.py forward --help`, w
 ## GUI
 
 Launch the visualization (requires Tkinter, part of the Python standard
-library; on NixOS make sure `tk` is available in your shell):
+library:
 
 ```
 python3 main.py gui --random 12 --seed 42 --algo dijkstra
