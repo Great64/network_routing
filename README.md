@@ -58,6 +58,37 @@ Topology source is either `--topology-file PATH` or `--random N [--seed S]`.
   verify the resulting shortest-path costs agree
 - `gui` – open a Tkinter window visualizing the network and packet forwarding
 
+## Flag reference
+
+Topology source flags (accepted by `table`, `forward`, `change`, `compare`, `gui`):
+
+| Flag | Value | Purpose |
+|------|-------|---------|
+| `--topology-file PATH` | path to CSV | Load an existing adjacency-matrix topology from disk. Mutually exclusive with `--random`. |
+| `--random N` | integer | Generate a connected random topology with N routers. Mutually exclusive with `--topology-file`. |
+| `--seed S` | integer | Seed the pseudo-random generator so runs are reproducible. Affects random topology generation and, for the `change` command, which random modification is applied. |
+
+Algorithm and routing flags:
+
+| Flag | Values | Default | Purpose |
+|------|--------|---------|---------|
+| `--algo` | `dijkstra` \| `bellman-ford` | `dijkstra` | Which shortest-path algorithm to use when computing routing tables. |
+| `--router R` | router label (e.g. `R1`) | – | (`table` only) Which router's routing table to print. |
+| `--src R` | router label | – | (`forward`, `change`) Source router for the packet or path comparison. |
+| `--dst R` | router label | – | (`forward`, `change`) Destination router. |
+| `--pid N` | integer | `1` | (`forward` only) Packet ID printed in the forwarding log. |
+
+Performance experiment flags (`perf` command):
+
+| Flag | Value | Default | Purpose |
+|------|-------|---------|---------|
+| `--sizes` | comma-separated ints | `10,20,50,100` | Network sizes to benchmark. |
+| `--out` | path | `results.csv` | Where to write the CSV results. PNG plots (if `matplotlib` is installed) are written alongside using this base name. |
+| `--seed` | integer | `42` | Seed used for both topology generation and the post-experiment random change. |
+| `--algo` | as above | `dijkstra` | Algorithm to benchmark. |
+
+Every subcommand also accepts `--help`, e.g. `python3 main.py forward --help`, which prints the flags applicable to that command.
+
 ## GUI
 
 Launch the visualization (requires Tkinter, part of the Python standard
