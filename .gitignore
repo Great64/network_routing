@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+*.docx
+*.pdf
+.~lock*
+capture_gui.sh
+generate_report.py
+render_cli_shots.py
+.review/
