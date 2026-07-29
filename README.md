@@ -2,7 +2,8 @@
 
 Python 3 network simulator implementing Dijkstra (link-state) and Bellman-Ford
 (distance-vector) routing, packet forwarding, topology-change simulation, and a
-performance analysis suite.
+performance analysis suite. The following example is done with 8 nodes for simplicity, 
+however this program can do virtually any number of nodes
 
 ## Requirements
 
